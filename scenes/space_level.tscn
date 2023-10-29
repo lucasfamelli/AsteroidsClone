@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://c6gwkrpkb1dp"]
+[gd_scene load_steps=2 format=3 uid="uid://c6gwkrpkb1dp"]
+
+[ext_resource type="Texture2D" uid="uid://ng3e5m2rn6st" path="res://graphics/background/space_background.png" id="1_4tvaj"]
 
 [node name="SpaceLevel" type="Node2D"]
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_4tvaj")

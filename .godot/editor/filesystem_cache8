@@ -1,13 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698588706
+::res://::1698588963
 icon.svg::CompressedTexture2D::7560927544320810310::1698588395::1698588399::1::::<><>::
-::res://asteroids_clone/::1698588498
-README.md::TextFile::-1::1698588498::0::1::::<><>::
-::res://graphics/::1698588712
-::res://graphics/asteroids/::1698588722
+::res://graphics/::1698589534
+::res://graphics/asteroids/::1698589534
 asteroids-2x.png::CompressedTexture2D::1376406884127872358::1698588715::1698588726::1::::<><>::
 asteroids-cutting-guide-2x.png::CompressedTexture2D::8606913456766716198::1698588718::1698588726::1::::<><>::
 asteroids-cutting-guide.png::CompressedTexture2D::3655089100596632511::1698588722::1698588726::1::::<><>::
 asteroids.png::CompressedTexture2D::2160940329220847083::1698588720::1698588726::1::::<><>::
+image source.txt::TextFile::-1::1698589534::0::1::::<><>::
+::res://graphics/background/::1698589534
+space_background.png::CompressedTexture2D::926550048280039115::1698589534::1698589688::1::::<><>::
 ::res://scenes/::1698588608
 space_level.tscn::PackedScene::204777539264565029::1698588608::0::1::::<><>::
