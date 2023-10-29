@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6gwkrpkb1dp"]
+[gd_scene load_steps=3 format=3 uid="uid://c6gwkrpkb1dp"]
 
 [ext_resource type="Texture2D" uid="uid://ng3e5m2rn6st" path="res://graphics/background/space_background.png" id="1_4tvaj"]
+[ext_resource type="PackedScene" uid="uid://gcna2jx5hv2e" path="res://scenes/player.tscn" id="2_dnwj6"]
 
 [node name="SpaceLevel" type="Node2D"]
 
@@ -8,3 +9,6 @@
 position = Vector2(640, 360)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("1_4tvaj")
+
+[node name="Player" parent="." instance=ExtResource("2_dnwj6")]
+position = Vector2(628.825, 370.795)

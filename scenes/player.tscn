@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://gcna2jx5hv2e"]
+
+[ext_resource type="Texture2D" uid="uid://brfv7fp2x7jm5" path="res://graphics/ships/player_ship_idle.png" id="1_2f12l"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_nj7h2"]
+[ext_resource type="Texture2D" uid="uid://n5h12ld5rdqu" path="res://graphics/ships/player_ship_moving.png" id="2_ao4j2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q7s6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2f12l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ao4j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2f12l")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 24.0
+}]
+
+[node name="Player" type="RigidBody2D"]
+collision_mask = 7
+angular_damp_mode = 1
+angular_damp = 100.0
+script = ExtResource("1_nj7h2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7q7s6")
+animation = &"moving"
+frame = 1
+frame_progress = 0.627675
+offset = Vector2(-2, 3)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, -16, 31, -1, 31, 2, -18, 19, -18, 14, -11, 9, -11, -5, -18, -10)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

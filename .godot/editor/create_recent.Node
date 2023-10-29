@@ -1,2 +1,6 @@
-Sprite2D
+Timer
+RigidBody2D
 CharacterBody2D
+CollisionPolygon2D
+AnimatedSprite2D
+Sprite2D

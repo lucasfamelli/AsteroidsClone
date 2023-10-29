@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duviuv4kungok"
-path="res://.godot/imported/asteroids-cutting-guide-2x.png-69b999b31cbceb49e6cf6ce45814a92e.ctex"
+uid="uid://dy5622en46k1h"
+path="res://.godot/imported/bullet1.png-3deb3eab74d409183c366c2d23bdc9f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/asteroids/asteroids-cutting-guide-2x.png"
-dest_files=["res://.godot/imported/asteroids-cutting-guide-2x.png-69b999b31cbceb49e6cf6ce45814a92e.ctex"]
+source_file="res://graphics/projectiles/bullet1.png"
+dest_files=["res://.godot/imported/bullet1.png-3deb3eab74d409183c366c2d23bdc9f2.ctex"]
 
 [params]
 
