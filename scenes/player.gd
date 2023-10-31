@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-@export var move_speed: int = 200
+@export var move_speed: int = 350
 @export var max_speed: int = 300
-@export var offset = 20
+@export var offset = 30
 
 var thrust = Vector2(move_speed,0)
 var torque = 50000 # 132 deg/s
@@ -37,6 +37,10 @@ func teleport(state: PhysicsDirectBodyState2D):
 	
 	state.set_transform(tar)
 		
+func _ready():
+	$CPUParticles2D.set_emitting(false)
+	$AnimatedSprite2D.play("idle")
+
 func _process(_delta):
 	pass
 
@@ -44,9 +48,11 @@ func _integrate_forces(state):
 	if Input.is_action_pressed("up"):
 		state.apply_force(thrust.rotated(rotation))
 		$AnimatedSprite2D.play("moving")
+		$CPUParticles2D.set_emitting(true)
 	else:
 		state.apply_force(Vector2())
 		$AnimatedSprite2D.play("idle")
+		$CPUParticles2D.set_emitting(false)
 		
 	var rotation_direction = 0
 	if Input.is_action_pressed("right"):
