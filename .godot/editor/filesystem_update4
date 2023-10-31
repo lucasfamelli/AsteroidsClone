@@ -1,3 +1,4 @@
+res://scenes/space_level.tscn
 res://scenes/player.tscn
 res://scenes/player.gd
-res://scenes/space_level.tscn
+res://scenes/space_level.gd

@@ -28,6 +28,7 @@ animations = [{
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 7
+linear_damp_mode = 1
 angular_damp_mode = 1
 angular_damp = 100.0
 script = ExtResource("1_nj7h2")
@@ -41,8 +42,3 @@ offset = Vector2(-2, 3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-18, -16, 31, -1, 31, 2, -18, 19, -18, 14, -11, 9, -11, -5, -18, -10)
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

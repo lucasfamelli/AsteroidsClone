@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698595146
+::res://::1698786509
 icon.svg::CompressedTexture2D::7560927544320810310::1698588395::1698588399::1::::<><>::
 ::res://graphics/::1698590965
 ::res://graphics/asteroids/::1698590971
@@ -18,11 +18,11 @@ space_background.png::CompressedTexture2D::926550048280039115::1698589534::16985
 ::res://graphics/projectiles/::1698590986
 bullet1.png::CompressedTexture2D::8907657499165382923::1698590584::1698590977::1::::<><>::
 bullet2.png::CompressedTexture2D::4896893778994878041::1698590550::1698590986::1::::<><>::
-::res://graphics/ships/::1698590689
+::res://graphics/ships/::1698595147
 enemy_ship.png::CompressedTexture2D::7292979749221317274::1698590294::1698590689::1::::<><>::
 player_ship_idle.png::CompressedTexture2D::3591285403610580586::1698590465::1698590689::1::::<><>::
 player_ship_moving.png::CompressedTexture2D::974859184807477832::1698595132::1698595147::1::::<><>::
-::res://scenes/::1698595110
-player.gd::GDScript::-1::1698594991::0::1::::<>RigidBody2D<>::
-player.tscn::PackedScene::426052571361376678::1698595110::0::1::::<><>::uid://brfv7fp2x7jm5::::res://graphics/ships/player_ship_idle.png<>res://scenes/player.gd<>uid://n5h12ld5rdqu::::res://graphics/ships/player_ship_moving.png
-space_level.tscn::PackedScene::204777539264565029::1698594991::0::1::::<><>::uid://ng3e5m2rn6st::::res://graphics/background/space_background.png<>uid://gcna2jx5hv2e::::res://scenes/player.tscn
+::res://scenes/::1698597424
+player.gd::GDScript::-1::1698596735::0::1::::<>RigidBody2D<>::
+player.tscn::PackedScene::426052571361376678::1698597424::0::1::::<><>::uid://brfv7fp2x7jm5::::res://graphics/ships/player_ship_idle.png<>res://scenes/player.gd<>uid://n5h12ld5rdqu::::res://graphics/ships/player_ship_moving.png
+space_level.tscn::PackedScene::204777539264565029::1698596957::0::1::::<><>::uid://ng3e5m2rn6st::::res://graphics/background/space_background.png<>uid://gcna2jx5hv2e::::res://scenes/player.tscn

@@ -1,14 +1,69 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6gwkrpkb1dp"]
+[gd_scene load_steps=6 format=3 uid="uid://c6gwkrpkb1dp"]
 
 [ext_resource type="Texture2D" uid="uid://ng3e5m2rn6st" path="res://graphics/background/space_background.png" id="1_4tvaj"]
+[ext_resource type="Script" path="res://scenes/space_level.gd" id="1_rm01e"]
 [ext_resource type="PackedScene" uid="uid://gcna2jx5hv2e" path="res://scenes/player.tscn" id="2_dnwj6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us5mv"]
+size = Vector2(1360, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjkh4"]
+size = Vector2(20, 800)
+
 [node name="SpaceLevel" type="Node2D"]
+position = Vector2(-640, -360)
+script = ExtResource("1_rm01e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(640, 360)
+zoom = Vector2(0.9, 0.9)
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="UpLimit" type="Area2D" parent="Boundaries"]
+position = Vector2(0, -40)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/UpLimit"]
+position = Vector2(640, -10)
+shape = SubResource("RectangleShape2D_us5mv")
+
+[node name="DownLimit" type="Area2D" parent="Boundaries"]
+position = Vector2(0, 770)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/DownLimit"]
+position = Vector2(640, 0)
+shape = SubResource("RectangleShape2D_us5mv")
+
+[node name="RightLimit" type="Area2D" parent="Boundaries"]
+position = Vector2(1330, 360)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightLimit"]
+shape = SubResource("RectangleShape2D_sjkh4")
+
+[node name="LeftLimit" type="Area2D" parent="Boundaries"]
+position = Vector2(-50, 360)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftLimit"]
+shape = SubResource("RectangleShape2D_sjkh4")
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("1_4tvaj")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_dnwj6")]
 position = Vector2(628.825, 370.795)
+
+[connection signal="body_entered" from="Boundaries/UpLimit" to="." method="_on_up_limit_body_entered"]
+[connection signal="body_entered" from="Boundaries/DownLimit" to="." method="_on_down_limit_body_entered"]
+[connection signal="body_entered" from="Boundaries/RightLimit" to="." method="_on_right_limit_body_entered"]
+[connection signal="body_entered" from="Boundaries/LeftLimit" to="." method="_on_left_limit_body_entered"]
