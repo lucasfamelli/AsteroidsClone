@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://gcna2jx5hv2e"]
+[gd_scene load_steps=6 format=3 uid="uid://c0km6u7bvtrwo"]
 
 [ext_resource type="Texture2D" uid="uid://brfv7fp2x7jm5" path="res://graphics/ships/player_ship_idle.png" id="1_2f12l"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_nj7h2"]
+[ext_resource type="Script" path="res://scenes/object.gd" id="1_3ukd6"]
 [ext_resource type="Texture2D" uid="uid://n5h12ld5rdqu" path="res://graphics/ships/player_ship_moving.png" id="2_ao4j2"]
 
 [sub_resource type="Gradient" id="Gradient_ma1qc"]
@@ -35,7 +35,8 @@ collision_mask = 7
 linear_damp_mode = 1
 angular_damp_mode = 1
 angular_damp = 100.0
-script = ExtResource("1_nj7h2")
+script = ExtResource("1_3ukd6")
+type = "player"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-18, -16, 31, -1, 31, 2, -18, 19, -18, 14, -11, 9, -11, -5, -18, -10)
