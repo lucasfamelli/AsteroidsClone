@@ -1,18 +1,13 @@
 extends RigidBody2D
 
 @export var type: String
-@export var size: String = "large":
-	set(value):
-		if "large" in size:
-			offset = 60
-		if "medium" in size:
-			offset = 48
-		if "small" in size:
-			offset = 32
+@export var size: String = "large"
+
+signal fire_bullet(pos, rot)
 
 var move_speed: int = 350
 var max_speed: int = 300
-var offset: int = 48
+var offset: int = 60
 
 var thrust = Vector2(move_speed,0)
 var torque = 50000 # 132 deg/s
@@ -43,12 +38,6 @@ func adjust_asteroid_collision_size():
 		offset = 30
 		$CollisionShape2D.scale = Vector2(0.3, 0.3)
 
-func prepare_teleport(way):
-	if way == "v":
-		vert = true
-	if way == "h":
-		hori = true
-
 func teleport(state: PhysicsDirectBodyState2D):
 	var tar = Transform2D(state.get_transform())
 	
@@ -68,7 +57,7 @@ func teleport(state: PhysicsDirectBodyState2D):
 	
 	state.set_transform(tar)
 
-func move_player(state: PhysicsDirectBodyState2D):
+func input_player(state: PhysicsDirectBodyState2D):
 	if Input.is_action_pressed("up"):
 		state.apply_force(thrust.rotated(rotation))
 		$AnimatedSprite2D.play("moving")
@@ -77,7 +66,7 @@ func move_player(state: PhysicsDirectBodyState2D):
 		state.apply_force(Vector2())
 		$AnimatedSprite2D.play("idle")
 		$CPUParticles2D.set_emitting(false)
-		
+	
 	var rotation_direction = 0
 	if Input.is_action_pressed("right"):
 		rotation_direction += 1
@@ -90,7 +79,15 @@ func move_player(state: PhysicsDirectBodyState2D):
 		var new_speed: Vector2 = state.get_linear_velocity().normalized()
 		new_speed *= max_speed
 		state.set_linear_velocity(new_speed)
-
+	
+	if Input.is_action_pressed("action") and can_fire:
+		can_fire = false
+		$Timer.start()
+		fire()
+		
+func fire():
+	fire_bullet.emit($Gun.global_position, $Gun.global_rotation)
+	
 func _ready():
 	if type == "player":
 		$CPUParticles2D.set_emitting(false)
@@ -104,12 +101,10 @@ func _process(_delta):
 
 func _integrate_forces(state):
 	if type == "player":
-		move_player(state)
+		input_player(state)
 	
 	if vert or hori:
 		teleport(state)
 	
-	
-	
-
-
+func _on_timer_timeout():
+	can_fire = true

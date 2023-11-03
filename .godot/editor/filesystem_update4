@@ -2,5 +2,7 @@ res://scenes/player.tscn
 res://scenes/space_level.tscn
 res://scenes/asteroid.tscn
 res://scenes/object.gd
-res://globals/globals.gd
-res://scenes/asteroid.gd
+res://scenes/bullet.tscn
+res://scenes/bullet.gd
+res://scenes/space_level.gd
+res://scenes/TeleportArea.gd

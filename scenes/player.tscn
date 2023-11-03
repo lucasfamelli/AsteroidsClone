@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0km6u7bvtrwo"]
+[gd_scene load_steps=8 format=3 uid="uid://c0km6u7bvtrwo"]
 
 [ext_resource type="Texture2D" uid="uid://brfv7fp2x7jm5" path="res://graphics/ships/player_ship_idle.png" id="1_2f12l"]
 [ext_resource type="Script" path="res://scenes/object.gd" id="1_3ukd6"]
 [ext_resource type="Texture2D" uid="uid://n5h12ld5rdqu" path="res://graphics/ships/player_ship_moving.png" id="2_ao4j2"]
+[ext_resource type="Script" path="res://scenes/TeleportArea.gd" id="4_uecs3"]
 
 [sub_resource type="Gradient" id="Gradient_ma1qc"]
 offsets = PackedFloat32Array(0, 0.102484, 0.763975, 1)
@@ -30,8 +31,12 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_paemm"]
+radius = 3.0
+
 [node name="Player" type="RigidBody2D"]
-collision_mask = 7
+rotation = -1.57079
+collision_mask = 23
 linear_damp_mode = 1
 angular_damp_mode = 1
 angular_damp = 100.0
@@ -64,3 +69,18 @@ color_ramp = SubResource("Gradient_ma1qc")
 sprite_frames = SubResource("SpriteFrames_7q7s6")
 animation = &"idle"
 offset = Vector2(-2, 3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Gun" type="Marker2D" parent="."]
+position = Vector2(40, 0)
+
+[node name="TeleportArea" type="Area2D" parent="."]
+collision_mask = 8
+script = ExtResource("4_uecs3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportArea"]
+shape = SubResource("CircleShape2D_paemm")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

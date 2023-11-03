@@ -23,39 +23,40 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(640, 360)
+zoom = Vector2(0.6, 0.6)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
 [node name="UpLimit" type="Area2D" parent="Boundaries"]
-position = Vector2(0, -120)
+position = Vector2(0, 10)
 collision_layer = 8
-collision_mask = 15
+collision_mask = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/UpLimit"]
 position = Vector2(640, -10)
 shape = SubResource("RectangleShape2D_us5mv")
 
 [node name="DownLimit" type="Area2D" parent="Boundaries"]
-position = Vector2(0, 850)
+position = Vector2(0, 720)
 collision_layer = 8
-collision_mask = 15
+collision_mask = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/DownLimit"]
 position = Vector2(640, 0)
 shape = SubResource("RectangleShape2D_us5mv")
 
 [node name="RightLimit" type="Area2D" parent="Boundaries"]
-position = Vector2(1380, 360)
+position = Vector2(1251, 360)
 collision_layer = 8
-collision_mask = 15
+collision_mask = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightLimit"]
 shape = SubResource("RectangleShape2D_sjkh4")
 
 [node name="LeftLimit" type="Area2D" parent="Boundaries"]
-position = Vector2(-100, 360)
+position = Vector2(29, 360)
 collision_layer = 8
-collision_mask = 15
+collision_mask = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftLimit"]
 shape = SubResource("RectangleShape2D_sjkh4")
@@ -78,10 +79,14 @@ type = "asteroid"
 position = Vector2(262, 549)
 type = "asteroid"
 
+[node name="Projectiles" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
 [node name="Player" parent="." instance=ExtResource("2_dnwj6")]
 position = Vector2(628.825, 370.795)
 
-[connection signal="body_entered" from="Boundaries/UpLimit" to="." method="_on_up_limit_body_entered"]
-[connection signal="body_entered" from="Boundaries/DownLimit" to="." method="_on_down_limit_body_entered"]
-[connection signal="body_entered" from="Boundaries/RightLimit" to="." method="_on_right_limit_body_entered"]
-[connection signal="body_entered" from="Boundaries/LeftLimit" to="." method="_on_left_limit_body_entered"]
+[connection signal="area_entered" from="Boundaries/UpLimit" to="." method="_on_up_limit_area_entered"]
+[connection signal="area_entered" from="Boundaries/DownLimit" to="." method="_on_down_limit_area_entered"]
+[connection signal="area_entered" from="Boundaries/RightLimit" to="." method="_on_right_limit_area_entered"]
+[connection signal="area_entered" from="Boundaries/LeftLimit" to="." method="_on_left_limit_area_entered"]
+[connection signal="fire_bullet" from="Player" to="." method="_on_player_fire_bullet"]

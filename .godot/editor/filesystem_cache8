@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698842772
+::res://::1699019610
 icon.svg::CompressedTexture2D::7560927544320810310::1698588395::1698588399::1::::<><>::
-::res://globals/::1698799219
-globals.gd::GDScript::-1::1698799219::0::1::::<>Node<>::
+::res://globals/::1698843002
+globals.gd::GDScript::-1::1698843002::0::1::::<>Node<>::
 ::res://graphics/::1698794506
 ::res://graphics/asteroids/::1698797845
 image source.txt::TextFile::-1::1698589534::0::1::::<><>::
@@ -24,10 +24,9 @@ bullet2.png::CompressedTexture2D::4896893778994878041::1698794506::1698794506::1
 enemy_ship.png::CompressedTexture2D::7292979749221317274::1698794506::1698794506::1::::<><>::
 player_ship_idle.png::CompressedTexture2D::3591285403610580586::1698794506::1698794506::1::::<><>::
 player_ship_moving.png::CompressedTexture2D::974859184807477832::1698794506::1698794506::1::::<><>::
-::res://scenes/::1698799252
-asteroid.gd::GDScript::-1::1698799233::0::1::::<>RigidBody2D<>::
-asteroid.tscn::PackedScene::4967473133479493423::1698799252::0::1::::<><>::res://scenes/asteroid.gd
-player.gd::GDScript::-1::1698799219::0::1::::<>RigidBody2D<>::
-player.tscn::PackedScene::6548991299376868678::1698842837::0::1::::<><>::uid://brfv7fp2x7jm5::::res://graphics/ships/player_ship_idle.png<>uid://n5h12ld5rdqu::::res://graphics/ships/player_ship_moving.png
-space_level.gd::GDScript::-1::1698798095::0::1::::<>Node2D<>::
-space_level.tscn::PackedScene::204777539264565029::1698799236::0::1::::<><>::uid://ng3e5m2rn6st::::res://graphics/background/space_background.png<>res://scenes/space_level.gd<>uid://c0km6u7bvtrwo::::res://scenes/player.tscn<>uid://cc1js6utcpg6b::::res://scenes/asteroid.tscn
+::res://scenes/::1699019597
+asteroid.tscn::PackedScene::4967473133479493423::1699019597::0::1::::<><>::res://scenes/object.gd
+object.gd::GDScript::-1::1699019597::0::1::::<>RigidBody2D<>::
+player.tscn::PackedScene::6548991299376868678::1699019597::0::1::::<><>::uid://brfv7fp2x7jm5::::res://graphics/ships/player_ship_idle.png<>res://scenes/object.gd<>uid://n5h12ld5rdqu::::res://graphics/ships/player_ship_moving.png
+space_level.gd::GDScript::-1::1699019597::0::1::::<>Node2D<>::
+space_level.tscn::PackedScene::204777539264565029::1699019597::0::1::::<><>::uid://ng3e5m2rn6st::::res://graphics/background/space_background.png<>res://scenes/space_level.gd<>uid://c0km6u7bvtrwo::::res://scenes/player.tscn<>uid://cc1js6utcpg6b::::res://scenes/asteroid.tscn
