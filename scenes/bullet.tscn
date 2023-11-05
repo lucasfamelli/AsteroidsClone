@@ -9,7 +9,7 @@ radius = 4.12311
 [node name="Bullet" type="Area2D"]
 rotation = 3.14159
 collision_layer = 16
-collision_mask = 15
+collision_mask = 14
 script = ExtResource("1_tntj6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

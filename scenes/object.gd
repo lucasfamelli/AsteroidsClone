@@ -1,13 +1,14 @@
 extends RigidBody2D
 
 @export var type: String
-@export var size: String = "large"
+@export var size: String
 
 signal fire_bullet(pos, rot)
+signal split_asteroid(asteroid: RigidBody2D)
 
 var move_speed: int = 350
 var max_speed: int = 300
-var offset: int = 60
+var offset: int = 10
 
 var thrust = Vector2(move_speed,0)
 var torque = 50000 # 132 deg/s
@@ -31,11 +32,11 @@ func load_asteroid_texture():
 
 func adjust_asteroid_collision_size():
 	if size == "medium":
-		offset = 30
+		$CollisionShape2D.scale = Vector2(1.0, 1.0)
+	if size == "medium":
 		$CollisionShape2D.scale = Vector2(0.5, 0.5)
 	
 	if size == "small":
-		offset = 30
 		$CollisionShape2D.scale = Vector2(0.3, 0.3)
 
 func teleport(state: PhysicsDirectBodyState2D):
@@ -84,17 +85,40 @@ func input_player(state: PhysicsDirectBodyState2D):
 		can_fire = false
 		$Timer.start()
 		fire()
-		
+
 func fire():
 	fire_bullet.emit($Gun.global_position, $Gun.global_rotation)
-	
+
+func hit():
+#	print(self, " was hit!")
+	if "asteroid" in type:
+		print("asteroid hit!")
+		split_asteroid.emit(self)
+
+func die():
+	queue_free()
+
+func accelerate_asteroid():
+	if "asteroid" in type:
+		apply_impulse(Vector2(randf_range(-1,1), randf_range(-1,1)) * 100)
+		apply_torque(randf() * 200e3)
+
+func start_asteroid(t, s, pos):
+	type = t
+	size = s
+	position = pos
+	load_asteroid_texture()
+	adjust_asteroid_collision_size()
+	accelerate_asteroid()
+
 func _ready():
-	if type == "player":
+	if "player" in type:
 		$CPUParticles2D.set_emitting(false)
 		$AnimatedSprite2D.play("idle")
 	if "asteroid" in type:
 		load_asteroid_texture()
 		adjust_asteroid_collision_size()
+		accelerate_asteroid()
 	
 func _process(_delta):
 	pass
